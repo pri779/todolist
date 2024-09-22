@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
+
+.do {
+    text-align: center;
+    margin-left: 500px;
+   
+    padding-top: 400px;
+}
+
+.do h2 {
+    font-family: 'Consolas', monospace;
+    font-size: 24px;
+    color: #1f2222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.do h2 img {
+    width: 19px;
+    margin-left: 10px;
+}
+
+.do button {
+    border-radius: 30px;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    width: fit-content;
+    font-family: 'Consolas', monospace;
+    color: #1f2222;
+    text-transform: uppercase;
+    background-color: transparent;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    border: none;
+}
+
+.do button:hover {
+    background-color: #987cda;
+    color: #050801;
+    box-shadow:
+        0 0 5px #987cda,
+        0 0 25px #987cda,
+        0 0 50px #987cda,
+        0 0 200px #987cda;
+}
+
+.to {
+    display: flex;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 10px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+    color: #1f2222;
+}
+
+button {
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #7a7e7e;
+    font-size: 16px;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 30px;
+}

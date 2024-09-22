@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/originals/ac/54/a1/ac54a128942c750799c2c1fe144d2467.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-left: 700px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100vh); /* Start off-screen from the top */
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0); /* End at the final position */
+                opacity: 1;
+            }
+        }
+
+        .container {
+            width: 70%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: -90px;
+            animation: slideIn 1s ease-out forwards; /* Apply the slide-in animation */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            margin-top: -7x;
+        }
+
+        .input-section input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-section button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #6a0dad;
+            color: white;
+            font-size: 16px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6a0dad, 0 0 20px #6a0dad, 0 0 25px #6a0dad, 0 0 30px #6a0dad, 0 0 35px #6a0dad;
+           
+            border-radius: 9px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .input-section button:hover {
+            box-shadow: 0 0 10px #6a0dad, 0 0 20px #6a0dad, 0 0 30px #6a0dad, 0 0 40px #6a0dad;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            border-left: 5px solid #6a0dad;
+            border-radius: 5px;
+        }
+
+        ul li.completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .actions button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .actions button.edit {
+            color: #1e90ff;
+        }
+
+        .actions button.delete {
+            color: #ff4500;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>TODO List</h1>
+    <div class="input-section">
+        <input type="text" id="taskInput" placeholder="Enter a task...">
+        <button id="addTaskBtn">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+
+    addTaskBtn.addEventListener('click', addTask);
+
+    function addTask() {
+        const taskText = taskInput.value;
+        if (taskText === '') return;
+
+        const li = document.createElement('li');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', () => {
+            li.classList.toggle('completed');
+        });
+
+        const taskContent = document.createElement('span');
+        taskContent.textContent = taskText;
+
+        const actions = document.createElement('div');
+        actions.classList.add('actions');
+
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit');
+        editBtn.innerHTML = 'Edit';
+        editBtn.addEventListener('click', () => {
+            const newTaskText = prompt('Edit your task', taskContent.textContent);
+            if (newTaskText) {
+                taskContent.textContent = newTaskText;
+            }
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete');
+        deleteBtn.innerHTML = 'Delete';
+        deleteBtn.addEventListener('click', () => {
+            taskList.removeChild(li);
+        });
+        
+        actions.appendChild(editBtn);
+        actions.appendChild(deleteBtn);
+
+        li.appendChild(checkbox);
+        li.appendChild(taskContent);
+        li.appendChild(actions);
+
+        taskList.appendChild(li);
+        taskInput.value = '';
+    }
+</script>
+
+</body>
+</html>
