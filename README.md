@@ -21,7 +21,7 @@ To run this project locally, follow these steps:
 
 1. **Clone the Repository**: Clone the project repository from GitHub.
 2. **Navigate to the Project Directory**: Open the project folder.
-3. **Open the HTML File**: Open `index.html` in your web browser. If you are using XAMPP, place the project folder in the `htdocs` directory.
+3. **Open the HTML File**: Open `TODO.html` in your web browser. If you are using XAMPP, place the project folder in the `htdocs` directory.
 4. **Run the Application**: Access the application by navigating to `http://localhost/todo-list` in your browser.
 
 Usage
